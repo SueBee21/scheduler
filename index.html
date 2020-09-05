@@ -21,8 +21,6 @@
     <p id="currentDay" class="lead"></p>
   </header>
   <div class="container">
-
-    <!-- Timeblocks go here -->
     <table>
       <!-- 9am, id=0 -->
       <div class="row" id="timeblock-9">
@@ -108,17 +106,11 @@
 
     // WHEN I open the planner
     // THEN the current day is displayed at the top of the calendar
-    // header class= jumbotron     h1 class=display-3      p id=current day, class=lead 
     var today = moment().format('MMMM Do YYYY');
     var getCurrentHr = moment().hour();
-    // append to p id=currentDay
-    $("#current").text(today);
+    $("#currentDay").text(today);
 
     var militaryTime = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-
-    // WHEN I scroll down
-    // THEN I am presented with timeblocks for standard business hours 
-
 
     // WHEN I view the timeblocks for that day
     // THEN each timeblock is color coded to indicate whether it is in the past, present, or future -->
@@ -140,32 +132,16 @@
     };
 
 
-
-    // WHEN I click into a timeblock
-    // THEN I can enter an event
-
-
-
-
     // WHEN I click the save button for that timeblock
     // THEN the text for that event is saved in local storage 
-
     var saveBtn = $(".saveBtn");
 
-    saveBtn.on("click", function () {
+    saveBtn.on("click", function() {
       var id = $(this).attr("data-id");
       localStorage.setItem(id, $("#" + id).val());
     });
 
-
-
-// WHEN I refresh the page
-// THEN the saved events persist 
-//  local storage?
-
-
-
-
+    // if current time is greater than expiry time, remove item from storage, otherwise save original inforamtion
 
   </script>
 
